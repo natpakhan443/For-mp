@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; margin-top: 50px; }
+        .hidden { display: none; color: red; }
+    </style>
+</head>
+<body>
+    <h2>Enter Password</h2>
+    <input type="password" id="password" placeholder="Enter password">
+    <button onclick="checkPassword()">Submit</button>
+    <p id="error-message" class="hidden">Incorrect password, try again.</p>
+
+    <script>
+        function checkPassword() {
+            let password = document.getElementById("password").value;
+            let errorMessage = document.getElementById("error-message");
+
+            if (password === "1234") {  // เปลี่ยนรหัสที่นี่
+                localStorage.setItem("authenticated", "true"); // เก็บสถานะล็อกอิน
+                window.location.href = "main.html"; // ไปที่หน้าหลัก
+            } else {
+                errorMessage.classList.remove("hidden");
+            }
+        }
+    </script>
+</body>
+</html>
